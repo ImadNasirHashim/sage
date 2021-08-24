@@ -127,15 +127,20 @@ class SignUpScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Flexible(
-                                child: RadioListTile(
-                                  contentPadding: EdgeInsets.all(0),
-                                  groupValue: model.groupValue,
-                                  onChanged: (newValue){
-                                    model.termsAndConditions(newValue);
-                                  },
-                                  value: 1,
-                                  activeColor: primaryColor,
-                                  title: Text('By signing up you must agree to our terms and conditions',style: TextStyle(color: Colors.black),),
+                                child: Flexible(
+                                  child: ListTile(
+                                    horizontalTitleGap: 0.0,
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: Radio(
+                                      groupValue: model.groupValue,
+                                      onChanged:(newValue){
+                                        model.termsAndConditions(newValue);
+                                      },
+                                      value: 1,
+                                      activeColor: primaryColor,
+                                    ),
+                                    title: Text('By signing up you must agree to our terms and conditions',style: TextStyle(color: Colors.black),),
+                                  ),
                                 ),
                               ),
                             ],

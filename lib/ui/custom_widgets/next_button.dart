@@ -5,15 +5,16 @@ class CustomNextButton extends StatelessWidget {
   final title;
   final IconData? icon;
   final onPressed;
+  final double? height;
 
-  CustomNextButton({this.title,this.icon,this.onPressed});
+  CustomNextButton({this.title,this.icon,this.onPressed,this.height});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: 35,
+        height: height!,
         decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(7),
@@ -24,7 +25,7 @@ class CustomNextButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(title,style: TextStyle(color: Colors.white),),
+                Text(title,style: TextStyle(color: Colors.white,fontSize: 17),),
                 SizedBox(width: 4,),
                 Icon(icon,color: Colors.white,),
               ],

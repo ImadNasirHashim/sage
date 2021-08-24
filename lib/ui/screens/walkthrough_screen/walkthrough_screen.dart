@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sage/ui/custom_widgets/back_button.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
+import 'package:sage/ui/screens/questionnaires_screens/question_screens.dart';
 import 'package:sage/ui/screens/walkthrough_screen/walkthroug_provider.dart';
 
 class WalkThroughScreen extends StatelessWidget {
@@ -70,11 +72,13 @@ class WalkThroughScreen extends StatelessWidget {
                       /// Next button
                       ///
                       CustomNextButton(
+                        height: 36,
                         title: "Next",
                         icon: Icons.arrow_forward_ios_sharp,
                         onPressed: (){
                           if(model.index == model.youtubeData.length-1)
                           {
+                            Get.offAll(()=>QuestionScreen());
                             model.index=model.index;
                           }
                           else{
@@ -92,6 +96,7 @@ class WalkThroughScreen extends StatelessWidget {
                 ///
                 Expanded(
                   child: ListView(
+
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 18.0),

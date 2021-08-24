@@ -6,7 +6,7 @@ class CustomTextField extends StatelessWidget {
   final validator;
   final hintText;
   final controller;
-  final  preFixIcon;
+  final preFixIcon;
   final sufFixIcon;
 
 
