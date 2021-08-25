@@ -7,6 +7,7 @@ import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/custom_widgets/question_container.dart';
 import 'package:sage/ui/screens/questionnaires_screens/question_screen_provider.dart';
 import 'package:sage/ui/screens/self_awareness_screens/self_awareness_screen.dart';
+import 'package:intl/intl.dart';
 
 class QuestionScreen extends StatelessWidget {
 
@@ -68,7 +69,7 @@ class QuestionScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CustomBackButton(
-                        title: "9:30 PM",
+                        title: "${model.setTime}",
                         onPressed: (){
                           model.setTimeForReminder(context);
                         },

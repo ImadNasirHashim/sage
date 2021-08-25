@@ -2,11 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sage/core/view_models/base_view_model.dart';
+import 'package:intl/intl.dart';
 
 class QuestionScreenProvider extends BaseViewModal{
   double  sliderValue = 0;
   double sliderMinValue = 0;
   double sliderMaxvalue = 100;
+  String? setTime;
+
+  QuestionScreenProvider(){
+    setTime="9:00 AM";
+  }
 
   changeSliderValue(double value){
     sliderValue = value;
@@ -14,6 +20,9 @@ class QuestionScreenProvider extends BaseViewModal{
     notifyListeners();
   }
 
+  ///
+  /// time alert dialog
+  ///
   setTimeForReminder(BuildContext context){
     Get.defaultDialog(
         title: 'Journal reminder',
@@ -23,7 +32,11 @@ class QuestionScreenProvider extends BaseViewModal{
             minuteInterval: 1,
             mode: CupertinoDatePickerMode.time,
             onDateTimeChanged: (DateTime dateTime) {
-              print("dateTime: ${dateTime}");
+              final DateFormat formatter = DateFormat.jm();
+              final onlyTime = formatter.format(dateTime);
+              setTime = onlyTime;
+              print("dateTime: ${setTime}");
+              notifyListeners();
             },
           ),
         )
