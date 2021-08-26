@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/ui/custom_widgets/custom_grid_tile.dart';
 import 'package:sage/ui/custom_widgets/custom_navigation_bar.dart';
+import 'package:sage/ui/screens/setting_screen.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -65,7 +66,9 @@ class HomeScreen extends StatelessWidget {
                     CustomGridTile(
                       title: "Settings",
                       icon: 'setting_icon.png',
-                      onPressed: null,
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingScreen()));
+                      },
                     ),
                   ],
                 ),

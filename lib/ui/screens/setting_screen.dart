@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:sage/core/constants/styles.dart';
+import 'package:sage/ui/screens/self_awareness_screens/self_awareness_screen.dart';
+import 'package:sage/ui/screens/settings_options_screens/contact_us_screen.dart';
+import 'package:sage/ui/screens/settings_options_screens/feedback_screen.dart';
+import 'package:sage/ui/screens/settings_options_screens/terms_and_policies.dart';
 
 class SettingScreen extends StatelessWidget {
 
@@ -16,12 +21,7 @@ class SettingScreen extends StatelessWidget {
         title: Text("SAGE-APP Settings"),
         centerTitle: true,
         elevation: 0.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(7),
-            bottomLeft: Radius.circular(7),
-          ),
-        ),
+        shape: appBarShape,
       ),
       ///
       /// Body
@@ -61,7 +61,9 @@ class SettingScreen extends StatelessWidget {
           SettingListTile(
             title: "Change Journal",
             leadingIcon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SelfAwarenessScreen()));
+            },
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -73,7 +75,9 @@ class SettingScreen extends StatelessWidget {
           SettingListTile(
             title: "Contact support",
             leadingIcon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactUsScreen()));
+            }
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -85,7 +89,7 @@ class SettingScreen extends StatelessWidget {
           SettingListTile(
             title: "Review/Rate SAGE app",
             leadingIcon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
+            onPressed: (){},
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -97,7 +101,9 @@ class SettingScreen extends StatelessWidget {
           SettingListTile(
             title: "Feedback & suggestions",
             leadingIcon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>FeedBackScreen()));
+            },
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -109,7 +115,9 @@ class SettingScreen extends StatelessWidget {
           SettingListTile(
             title: "Terms of use & policies",
             leadingIcon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsAndPoliciesScreen()));
+            },
           ),
           SizedBox(height: 5,),
         ],
@@ -128,7 +136,7 @@ class SettingListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 19),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 15),
       child: Material(
         shadowColor: Colors.grey,
         borderRadius: BorderRadius.circular(7),

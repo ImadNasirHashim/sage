@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         primaryColor: primaryColor
       ),
-      // home: SplashScreen(),
-   home: QuestionScreen(),
+      home: SplashScreen(),
+   // home: SettingScreen(),
     );
   }
 }

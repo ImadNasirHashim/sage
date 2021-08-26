@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sage/core/constants/styles.dart';
 
 class CustomTextField extends StatelessWidget {
 
@@ -15,24 +16,23 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.controller,
     this.hintText,
-    this.validator});
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      shadowColor: Colors.grey,
-      elevation: 20,
-      borderRadius: BorderRadius.circular(7),
+    return Container(
+      decoration: textFiledContainerStyle,
       child: TextFormField(
         onChanged: onChanged,
         validator: validator,
         controller: controller,
         decoration:InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 0,vertical: 20),
           hintText: '$hintText',
           prefixIcon: Icon(preFixIcon),
-          suffixIcon: ImageIcon(
-            AssetImage(sufFixIcon),
-          ),
+          suffixIcon: sufFixIcon != null ? ImageIcon(
+            AssetImage(sufFixIcon),) : SizedBox(height: 0, width: 0,),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7),
               borderSide: BorderSide.none
