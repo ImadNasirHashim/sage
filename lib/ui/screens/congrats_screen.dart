@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/screens/home_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CongratsScreen extends StatelessWidget {
 
@@ -16,12 +18,7 @@ class CongratsScreen extends StatelessWidget {
         title: Text('Congrats'),
         centerTitle: true,
         elevation: 0.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(7),
-              bottomRight: Radius.circular(7)
-          ),
-        ),
+        shape: appBarShape,
       ),
       ///
       /// body
@@ -33,7 +30,7 @@ class CongratsScreen extends StatelessWidget {
           children: [
             Text(
               'Hey great job!',
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.sp),
             ),
             SizedBox(height: 5,),
             Divider(thickness: 2,color: primaryColor,),
@@ -50,7 +47,7 @@ class CongratsScreen extends StatelessWidget {
                       child: Text('Thanks for filling this out.\n You are all set up',
                         textAlign: TextAlign.justify,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -59,19 +56,20 @@ class CongratsScreen extends StatelessWidget {
                 ),
             ),
             Divider(thickness: 2,color: primaryColor,),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+            SizedBox(height: 15.h,),
             Text(
               'Message your coach now to let them know',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16.sp),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.12,),
+            SizedBox(height: 40.h,),
             ///
             /// Next button
             ///
             CustomNextButton(
               title: "Next",
               icon: Icons.arrow_forward_ios,
-              height: 60,
+              height: 48.h,
+              width: 218.w,
               onPressed: ()=>Get.offAll(()=>HomeScreen()),
             ),
           ],

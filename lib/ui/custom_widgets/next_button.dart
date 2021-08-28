@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomNextButton extends StatelessWidget {
   final title;
   final IconData? icon;
   final onPressed;
   final double? height;
+  final double? width;
 
-  CustomNextButton({this.title,this.icon,this.onPressed,this.height});
+  CustomNextButton({this.title,this.icon,this.onPressed,this.height,this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,7 @@ class CustomNextButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         height: height!,
+        width: width!,
         decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(7),
@@ -25,7 +28,7 @@ class CustomNextButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(title,style: TextStyle(color: Colors.white,fontSize: 17),),
+                Text(title,style: TextStyle(color: Colors.white,fontSize: 16.sp),),
                 SizedBox(width: 4,),
                 Icon(icon,color: Colors.white,),
               ],

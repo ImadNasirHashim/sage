@@ -7,6 +7,7 @@ import 'package:sage/ui/custom_widgets/password_textfield.dart';
 import 'package:sage/ui/custom_widgets/rectangular_button.dart';
 import 'package:sage/ui/screens/auth/sign_in/login_provider.dart';
 import 'package:sage/ui/screens/auth/sign_up/sign_up_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 43.0),
+              padding: EdgeInsets.symmetric(horizontal: 43.0,vertical: 20),
               child: Center(
                 child: Consumer<LoginProvider>(
                   builder: (context, model, child){
@@ -32,16 +33,15 @@ class LoginScreen extends StatelessWidget {
                           ///
                           /// Logo
                           ///
-                          SizedBox(height: 40,),
                           Center(child: Image.asset('assets/logo/sage_logo_text.png')),
-                          SizedBox(height: 41,),
+                          SizedBox(height: 40.h,),
 
-                          Text("Welcome",style: TextStyle(fontSize: 36,fontWeight: FontWeight.bold),),
-                          Text("Continue to sign in!",style: TextStyle(fontSize: 24,fontWeight: FontWeight.normal),),
+                          Text("Welcome",style: TextStyle(fontSize: 36.sp,fontWeight: FontWeight.bold),),
+                          Text("Continue to sign in!",style: TextStyle(fontSize: 24.sp,fontWeight: FontWeight.normal),),
                           ///
                           /// email text field
                           ///
-                          SizedBox(height: 41,),
+                          SizedBox(height: 30.h,),
                           Text("Email"),
                           SizedBox(height: 5,),
                           CustomTextField(
@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                             sufFixIcon: 'assets/icons/sent_icon.png',
                             preFixIcon: Icons.email,
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(height: 20.h,),
                           ///
                           /// password text field
                           ///
@@ -80,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                                 }
                             },
                           ),
-                          SizedBox(height: 11,),
+                          SizedBox(height: 11.h,),
                           ///
                           /// Radio button and forgot password
                           ///
@@ -89,6 +89,7 @@ class LoginScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Flexible(
+
                                 child: ListTile(
                                   horizontalTitleGap: 0.0,
                                   contentPadding: EdgeInsets.zero,
@@ -103,15 +104,15 @@ class LoginScreen extends StatelessWidget {
                                   title: Text('Remember me',style: TextStyle(color: Colors.black),),
                                 ),
                               ),
-                              Text('Forgot Password?',style: TextStyle(fontSize: 16),),
+                              Text('Forgot Password?',style: TextStyle(fontSize: 16.sp),),
                             ],
                           ),
-                          SizedBox(height: 50,),
+                          SizedBox(height: 40.h,),
                           ///
                           /// Sign in button
                           ///
                           RectangularButton(title: 'Sign In', onPressed: ()=>model.checkUserTextField(model.appUser)),
-                          SizedBox(height: 28,),
+                          SizedBox(height: 28.h,),
                           ///
                           /// Don't have an account?  sign up option
                           ///
@@ -122,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                                   text: "Don't have an account?  ",
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
@@ -130,7 +131,7 @@ class LoginScreen extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black,
-                                          fontSize: 16,
+                                          fontSize: 16.sp,
                                         )
                                     )
                                   ]

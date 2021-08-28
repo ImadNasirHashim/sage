@@ -5,6 +5,7 @@ import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/screens/setting_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sage/ui/screens/settings_options_screens/feedback_provider.dart';
 
 class FeedBackScreen extends StatelessWidget {
@@ -18,7 +19,6 @@ class FeedBackScreen extends StatelessWidget {
         /// Appbar
         ///
         appBar: AppBar(
-          toolbarHeight: 70,
           title: Text("Feedback & Suggestions"),
           centerTitle: true,
           elevation: 0.0,
@@ -37,7 +37,7 @@ class FeedBackScreen extends StatelessWidget {
                   children: [
                     Text('Rate Your Experience',style: fontSize16.copyWith(fontWeight: FontWeight.bold),),
                     Text('How much you are satisfied with our service?',style: fontSize16,),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 10.h,),
                     ///
                     /// Rating
                     ///
@@ -113,12 +113,12 @@ class FeedBackScreen extends StatelessWidget {
                     ///
                     /// Leave a message
                     ///
-                    SizedBox(height: 15,),
+                    SizedBox(height: 15.h,),
                     Text("Leave message",style: fontSize16.copyWith(fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 10.h,),
                     Container(
                       padding: EdgeInsets.all(8),
-                      decoration: textFiledContainerStyle,
+                      decoration: textFiledContainerStyle.copyWith(color: Colors.white),
                       child: TextFormField(
                         onChanged: (value){},
                         validator: (value){},
@@ -128,15 +128,19 @@ class FeedBackScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(height: 40.h,),
                     ///
                     /// Send button
                     ///
-                    CustomNextButton(
-                      title: "SEND FEEDBACK",
-                      icon: Icons.send,
-                      height: 50,
-                      onPressed: ()=>model.sendFeedback(context),
+                    Align(
+                      alignment: Alignment.center,
+                      child: CustomNextButton(
+                        title: "SEND FEEDBACK",
+                        icon: Icons.send,
+                        height: 50.h,
+                        width: 218.w,
+                        onPressed: ()=>model.sendFeedback(context),
+                      ),
                     )
                   ],
                 ),

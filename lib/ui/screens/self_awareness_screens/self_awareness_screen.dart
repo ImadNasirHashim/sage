@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/custom_textfield.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/screens/congrats_screen.dart';
 import 'package:sage/ui/screens/self_awareness_screens/self_awareness_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelfAwarenessScreen extends StatelessWidget {
 
@@ -20,19 +22,14 @@ class SelfAwarenessScreen extends StatelessWidget {
           title: Text('Self-Awareness'),
           centerTitle: true,
           elevation: 0.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(7),
-                bottomRight: Radius.circular(7)
-            ),
-          ),
+          shape: appBarShape,
         ),
         ///
         /// Body
         ///
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 30),
+            padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
             child: Consumer<SelfAwarenessProvider>(
               builder: (context, model, child){
                 return Column(
@@ -40,9 +37,9 @@ class SelfAwarenessScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Select up to  2 behaviours to score and journal about',
-                      style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 33,),
+                    SizedBox(height: 33.h,),
                     ///
                     /// Dropdown
                     ///
@@ -50,7 +47,7 @@ class SelfAwarenessScreen extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Journal",
-                        style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(height: 5,),
@@ -59,7 +56,7 @@ class SelfAwarenessScreen extends StatelessWidget {
                       shadowColor: Colors.grey,
                       borderRadius: BorderRadius.circular(7),
                       child: DropdownButton(
-                        itemHeight: 60,
+                        itemHeight: 60.h,
                         isExpanded: true,
                         value: model.dropdownValue,
                         icon: Padding(
@@ -82,7 +79,7 @@ class SelfAwarenessScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    SizedBox(height: 33,),
+                    SizedBox(height: 33.h,),
                     ///
                     /// Enter behaviour
                     ///
@@ -90,7 +87,7 @@ class SelfAwarenessScreen extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Enter your own behaviour',
-                        style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(height: 5,),
@@ -101,14 +98,15 @@ class SelfAwarenessScreen extends StatelessWidget {
                       sufFixIcon: "assets/icons/edit.png",
                     ),
 
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.3,),
+                    SizedBox(height: 150.h,),
                     ///
                     /// Next button
                     ///
                     CustomNextButton(
                       title: "Next",
                       icon: Icons.arrow_forward_ios,
-                      height: 48,
+                      height: 48.h,
+                      width: 218.w,
                       onPressed: ()=>Get.offAll(()=>CongratsScreen()),
                     ),
                   ],

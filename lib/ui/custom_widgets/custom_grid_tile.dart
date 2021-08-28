@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomGridTile extends StatelessWidget {
   final onPressed;
@@ -10,21 +11,22 @@ class CustomGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
+    return Expanded(
       child: Container(
-        height: MediaQuery.of(context).size.width * 0.4,
-        width: MediaQuery.of(context).size.width * 0.45,
+        height: 150.h,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
-          child: Card(
-            color: backgroundColor,
-            shadowColor: Colors.grey,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.0),
-              child: GridTile(
-                child: Image.asset('assets/icons/${icon!}'),
-                footer: Text(title,textAlign: TextAlign.center,),
+          child: GestureDetector(
+            onTap: onPressed,
+            child: Card(
+              color: backgroundColor,
+              shadowColor: Colors.grey,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 15.0),
+                child: GridTile(
+                  child: Image.asset('assets/icons/${icon!}'),
+                  footer: Text(title,textAlign: TextAlign.center,),
+                ),
               ),
             ),
           ),

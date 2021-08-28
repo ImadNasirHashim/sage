@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/ui/screens/dashboard_screen.dart';
 import 'package:sage/ui/screens/home_screen.dart';
-import 'package:sage/ui/screens/journal_screen.dart';
-import 'package:sage/ui/screens/message_screen.dart';
+import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
+import 'package:sage/ui/screens/conversation_screens/message_screen.dart';
 
 
 class CustomNavigationBar extends StatelessWidget {

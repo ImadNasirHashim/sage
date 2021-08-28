@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sage/core/view_models/base_view_model.dart';
 import 'package:sage/ui/custom_widgets/rectangular_button.dart';
 
@@ -121,15 +122,17 @@ class FeedbackProvider extends BaseViewModal{
       barrierDismissible: false,
       title: '',
       content: Container(
-        height: MediaQuery.of(context).size.height * 0.25,
+        height: 200.h,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset('assets/logo/sage_logo_text.png'),
+            SizedBox(height: 10.h,),
             Align(
               alignment: Alignment.center,
               child: Text("Thank You for your valuable feedback "),
             ),
+            SizedBox(height: 20.h,),
             RectangularButton(
               title: 'Done',
               onPressed: (){

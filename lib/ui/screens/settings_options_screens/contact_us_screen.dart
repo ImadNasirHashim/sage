@@ -3,6 +3,8 @@ import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/custom_textfield.dart';
 import 'package:sage/ui/custom_widgets/rectangular_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class ContactUsScreen extends StatelessWidget {
 
@@ -11,7 +13,6 @@ class ContactUsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        toolbarHeight: 70,
         title: Text("Contact Us"),
         centerTitle: true,
         elevation: 0.0,
@@ -31,7 +32,7 @@ class ContactUsScreen extends StatelessWidget {
               ///
               /// user name
               ///
-              Text("Name",style: TextStyle(fontSize: 16),),
+              Text("Name",style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 5,),
               CustomTextField(
                 hintText: "Sage user",
@@ -40,11 +41,11 @@ class ContactUsScreen extends StatelessWidget {
                 validator: (value){},
                 preFixIcon: Icons.person,
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               ///
               /// Email address
               ///
-              Text("Email",style: TextStyle(fontSize: 16)),
+              Text("Email",style: TextStyle(fontSize: 16.sp)),
               SizedBox(height: 5,),
               CustomTextField(
                 hintText: "example@gmail.com",
@@ -53,11 +54,11 @@ class ContactUsScreen extends StatelessWidget {
                 validator: (value){},
                 preFixIcon: Icons.email,
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               ///
               /// company
               ///
-              Text("Company (Optional)",style: TextStyle(fontSize: 16)),
+              Text("Company (Optional)",style: TextStyle(fontSize: 16.sp)),
               SizedBox(height: 5,),
               CustomTextField(
                 hintText: "Company",
@@ -66,11 +67,11 @@ class ContactUsScreen extends StatelessWidget {
                 validator: (value){},
                 preFixIcon: Icons.account_balance,
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               ///
               /// Subject
               ///
-              Text("Subject",style: TextStyle(fontSize: 16)),
+              Text("Subject",style: TextStyle(fontSize: 16.sp)),
               SizedBox(height: 5,),
               CustomTextField(
                 hintText: "Journal information",
@@ -79,15 +80,15 @@ class ContactUsScreen extends StatelessWidget {
                 validator: (value){},
                 preFixIcon: Icons.person,
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               ///
               /// user message
               ///
-              Text("Message",style: TextStyle(fontSize: 16)),
+              Text("Message",style: TextStyle(fontSize: 16.sp)),
               SizedBox(height: 5,),
               Container(
                 padding: EdgeInsets.all(8),
-                decoration: textFiledContainerStyle,
+                decoration: textFiledContainerStyle.copyWith(color: Colors.white),
                 child: TextFormField(
                   onChanged: (value){},
                   validator: (value){},
@@ -97,7 +98,7 @@ class ContactUsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               RectangularButton(title: 'SUBMIT', onPressed: (){}),
             ],
           ),

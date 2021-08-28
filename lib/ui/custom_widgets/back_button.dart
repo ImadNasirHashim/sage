@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBackButton extends StatelessWidget {
   final title;
@@ -13,7 +14,7 @@ class CustomBackButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: 35,
+        height: 35.h,
         decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(7),
@@ -26,7 +27,7 @@ class CustomBackButton extends StatelessWidget {
               children: [
                 Icon(icon,color: Colors.white,),
                 SizedBox(width: 4,),
-                Text(title,style: TextStyle(color: Colors.white),),
+                Text(title,style: TextStyle(color: Colors.white,fontSize: 16.sp),),
               ],
             ),
           ),

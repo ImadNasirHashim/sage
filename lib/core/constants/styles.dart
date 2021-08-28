@@ -15,7 +15,7 @@ final questionStyle = BoxDecoration(
 );
 
 final textFiledContainerStyle = BoxDecoration(
-  color:Colors.white,
+  color:Colors.grey[300],
   borderRadius: BorderRadius.circular(7),
   boxShadow:[
     BoxShadow(

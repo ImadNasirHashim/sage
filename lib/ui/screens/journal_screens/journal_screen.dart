@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/custom_navigation_bar.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
-import 'package:sage/ui/screens/journal_provider.dart';
+import 'package:sage/ui/screens/journal_screens/journal_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class JournalScreen extends StatelessWidget {
 
@@ -14,16 +16,11 @@ class JournalScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
-          toolbarHeight: 70,
+          toolbarHeight: 70.h,
           title: Text("Self-Awareness & Journal"),
           centerTitle: true,
           elevation: 0.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(7),
-              bottomLeft: Radius.circular(7),
-            ),
-          ),
+          shape: appBarShape,
         ),
         body: Consumer<JournalProvider>(
           builder: (context, model, child){
@@ -36,8 +33,8 @@ class JournalScreen extends StatelessWidget {
                   ///
                   /// Behaviour
                   ///
-                  Text('1 > Behaviour',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                  SizedBox(height: 10,),
+                  Text('1 > Behaviour',style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold),),
+                  SizedBox(height: 10.h,),
                   Material(
                     shadowColor: Colors.grey,
                     elevation: 3,
@@ -49,12 +46,12 @@ class JournalScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20.h,),
                   ///
                   /// Slider
                   ///
-                  Text("2 > Select your score",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                  SizedBox(height: 10,),
+                  Text("2 > Select your score",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold),),
+                  SizedBox(height: 10.h,),
                   Material(
                     borderRadius: BorderRadius.circular(7),
                     shadowColor: Colors.grey,
@@ -97,24 +94,28 @@ class JournalScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(height: 50.h,),
                   ///
                   /// Next button
                   ///
-                  CustomNextButton(
-                    title: 'Next',
-                    icon: Icons.arrow_forward_ios,
-                    height: 45,
-                    onPressed: (){
-                      if(model.index == model.behaviours.length-1)
-                      {
-                        model.index=model.index;
-                      }
-                      else{
-                        model.index++;
-                      }
-                      model.getNextIndexData(model.index);
-                    },
+                  Align(
+                    alignment: Alignment.center,
+                    child: CustomNextButton(
+                      title: 'Next',
+                      icon: Icons.arrow_forward_ios,
+                      height: 45.h,
+                      width: 218.w,
+                      onPressed: (){
+                        if(model.index == model.behaviours.length-1)
+                        {
+                          model.index=model.index;
+                        }
+                        else{
+                          model.index++;
+                        }
+                        model.getNextIndexData(model.index);
+                      },
+                    ),
                   )
                 ],
               ),

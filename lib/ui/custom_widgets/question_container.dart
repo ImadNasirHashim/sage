@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionContainer extends StatelessWidget {
   final button;
@@ -14,8 +15,8 @@ class QuestionContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 9.0,vertical: 10),
       child: Container(
-        padding: EdgeInsets.all(10),
-        height: 150,
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        height: 130.h,
         decoration: questionStyle,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,8 +27,8 @@ class QuestionContainer extends StatelessWidget {
                 /// Question number
                 ///
                 Container(
-                  height: 20,
-                  width: 20,
+                  height: 20.h,
+                  width: 20.w,
                   decoration: BoxDecoration(
                     color: primaryColor.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(2)
@@ -35,23 +36,23 @@ class QuestionContainer extends StatelessWidget {
                   child: Center(
                     child: Text(
                       '$questionNo',
-                      style: TextStyle(color: Colors.white,fontSize: 16),
+                      style: TextStyle(color: Colors.white,fontSize: 16.sp),
                     ),
                   ),
                 ),
-                SizedBox(width: 14,),
+                SizedBox(width: 14.h,),
                 ///
                 /// Question title
                 ///
                 Expanded(child: Text(title)),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30.h,),
             ///
             /// button
             ///
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: button,
             ),
           ],

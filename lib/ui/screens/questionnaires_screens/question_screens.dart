@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/back_button.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/custom_widgets/question_container.dart';
 import 'package:sage/ui/screens/questionnaires_screens/question_screen_provider.dart';
 import 'package:sage/ui/screens/self_awareness_screens/self_awareness_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionScreen extends StatelessWidget {
 
@@ -23,12 +25,7 @@ class QuestionScreen extends StatelessWidget {
           title: Text('Set up for best experience'),
           centerTitle: true,
           elevation: 0.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(7),
-              bottomRight: Radius.circular(7)
-            ),
-          ),
+          shape: appBarShape,
         ),
         ///
         /// body
@@ -162,20 +159,21 @@ class QuestionScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 26,),
+                SizedBox(height: 26.h,),
                 ///
                 /// Next button
                 ///
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 80.0),
+                Align(
+                  alignment: Alignment.center,
                   child: CustomNextButton(
-                    height: 48,
+                    height: 48.h,
+                    width: 218.w,
                     title: "Next",
                     icon: Icons.navigate_next_sharp,
                     onPressed: ()=>Get.offAll(()=>SelfAwarenessScreen()),
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
               ],
             );
           },

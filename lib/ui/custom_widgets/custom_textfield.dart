@@ -28,7 +28,9 @@ class CustomTextField extends StatelessWidget {
         validator: validator,
         controller: controller,
         decoration:InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 0,vertical: 20),
+          fillColor: Colors.white,
+          filled: true,
+          contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
           hintText: '$hintText',
           prefixIcon: Icon(preFixIcon),
           suffixIcon: sufFixIcon != null ? ImageIcon(
