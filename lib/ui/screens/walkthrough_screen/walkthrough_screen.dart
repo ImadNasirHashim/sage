@@ -52,18 +52,21 @@ class WalkThroughScreen extends StatelessWidget {
                       ///
                       ///Back button
                       ///
-                      CustomBackButton(
-                        title: "Back",
-                        icon: Icons.arrow_back_ios,
-                        onPressed: (){
-                          if(model.index==0){
-                            model.index=0;
-                          }
-                          else {
-                              model.index--;
+                      Container(
+                        width: 85.w,
+                        child: CustomBackButton(
+                          title: "Back",
+                          icon: Icons.arrow_back_ios,
+                          onPressed: (){
+                            if(model.index==0){
+                              model.index=0;
                             }
-                          model.getPreviousIndexData(model.index);
-                        },
+                            else {
+                                model.index--;
+                              }
+                            model.getPreviousIndexData(model.index);
+                          },
+                        ),
                       ),
                       Text(
                         "Playing ${(model.index+1)}/${model.youtubeData.length}",

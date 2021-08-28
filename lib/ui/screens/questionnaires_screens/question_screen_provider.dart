@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sage/core/view_models/base_view_model.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sage/ui/custom_widgets/rectangular_button.dart';
 
 class QuestionScreenProvider extends BaseViewModal{
   double  sliderValue = 0;
@@ -25,6 +27,10 @@ class QuestionScreenProvider extends BaseViewModal{
   ///
   setTimeForReminder(BuildContext context){
     Get.defaultDialog(
+      onConfirm: ()=>Navigator.pop(context),
+        barrierDismissible: false,
+        confirmTextColor: Colors.white,
+        textConfirm: 'Done',
         title: 'Journal reminder',
         content: Container(
           height: MediaQuery.of(context).size.height * 0.3,
@@ -39,7 +45,7 @@ class QuestionScreenProvider extends BaseViewModal{
               notifyListeners();
             },
           ),
-        )
+        ),
     );
   }
 }

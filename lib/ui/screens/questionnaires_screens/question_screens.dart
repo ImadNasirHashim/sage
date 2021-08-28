@@ -32,7 +32,8 @@ class QuestionScreen extends StatelessWidget {
         ///
         body: Consumer<QuestionScreenProvider>(
           builder: (context, model, child){
-            return ListView(
+            return Flex(
+              direction: Axis.vertical,
               children: [
                 ///
                 /// Question 1
@@ -43,15 +44,20 @@ class QuestionScreen extends StatelessWidget {
                   button: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CustomBackButton(
-                        title: "4 behaviour",
-                        onPressed: null,
-                        icon: Icons.done,
+                      Expanded(
+                        child: CustomBackButton(
+                          title: "4 behaviour",
+                          onPressed: null,
+                          icon: Icons.done,
+                        ),
                       ),
-                      CustomBackButton(
-                        title: "8 behaviour",
-                        onPressed: null,
-                        icon: Icons.done,
+                      SizedBox(width: 10.w,),
+                      Expanded(
+                        child: CustomBackButton(
+                          title: "8 behaviour",
+                          onPressed: null,
+                          icon: Icons.done,
+                        ),
                       ),
                     ],
                   ),
@@ -65,12 +71,15 @@ class QuestionScreen extends StatelessWidget {
                   button: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CustomBackButton(
-                        title: "${model.setTime}",
-                        onPressed: (){
-                          model.setTimeForReminder(context);
-                        },
-                        icon: Icons.notifications,
+                      Container(
+                        width: 120.w,
+                        child: CustomBackButton(
+                          title: "${model.setTime}",
+                          onPressed: (){
+                            model.setTimeForReminder(context);
+                          },
+                          icon: Icons.notifications,
+                        ),
                       ),
                     ],
                   ),
@@ -84,15 +93,22 @@ class QuestionScreen extends StatelessWidget {
                   button: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CustomBackButton(
-                        title: "Yes",
-                        onPressed: null,
-                        icon: Icons.done,
+                      Container(
+                        width: 120.w,
+                        child: CustomBackButton(
+                          title: "Yes",
+                          onPressed: null,
+                          icon: Icons.done,
+                        ),
                       ),
-                      CustomBackButton(
-                        title: "No",
-                        onPressed: null,
-                        icon: Icons.close,
+                      SizedBox(width: 10.w,),
+                      Container(
+                        width: 120.w,
+                        child: CustomBackButton(
+                          title: "No",
+                          onPressed: null,
+                          icon: Icons.close,
+                        ),
                       ),
                     ],
                   ),
@@ -106,7 +122,7 @@ class QuestionScreen extends StatelessWidget {
                   button: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15.0),
+                        padding: EdgeInsets.symmetric(horizontal: 15.0.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -133,28 +149,6 @@ class QuestionScreen extends StatelessWidget {
                             model.changeSliderValue(value);
                           },
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                ///
-                /// Question 5
-                ///
-                QuestionContainer(
-                  questionNo: 1,
-                  title: "How many behaviors do you want to measure?",
-                  button: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CustomBackButton(
-                        title: "4 behaviour",
-                        onPressed: null,
-                        icon: Icons.done,
-                      ),
-                      CustomBackButton(
-                        title: "8 behaviour",
-                        onPressed: null,
-                        icon: Icons.done,
                       ),
                     ],
                   ),
