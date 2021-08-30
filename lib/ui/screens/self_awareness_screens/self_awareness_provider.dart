@@ -1,10 +1,10 @@
 import 'package:sage/core/view_models/base_view_model.dart';
 
-class SelfAwarenessProvider extends BaseViewModal{
-  String dropdownValue = 'Banana';
-  List<String> items =  ['Banana','Apple','some'];
+class SelfAwarenessProvider extends BaseViewModal {
+  String dropdownValue = 'Active';
+  List<String> items = ['Active', 'Ambitious', 'Cautious', 'Creative'];
 
-  selectDropDownValue(newValue){
+  selectDropDownValue(newValue) {
     dropdownValue = newValue;
     notifyListeners();
   }

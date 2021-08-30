@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:sage/ui/custom_widgets/custom_page_route.dart';
 import 'package:sage/ui/custom_widgets/custom_textfield.dart';
 import 'package:sage/ui/custom_widgets/password_textfield.dart';
 import 'package:sage/ui/custom_widgets/rectangular_button.dart';
@@ -150,13 +151,14 @@ class SignUpScreen extends StatelessWidget {
                           ///
                           /// Sign in button
                           ///
-                          RectangularButton(title: 'Sign Up', onPressed: ()=>model.signUpUser(model.appUser)),
+                          RectangularButton(title: 'Sign Up', onPressed: ()=>model.signUpUser(model.appUser,context)),
                           SizedBox(height: 28.h,),
                           ///
                           /// have an account?  sign in option
                           ///
                           GestureDetector(
-                            onTap: ()=>Get.offAll(()=>LoginScreen()),
+                            onTap: ()=>Navigator.pushReplacement(context, CustomPageRoute(child: LoginScreen())),
+                            // onTap: ()=>Get.offAll(()=>LoginScreen()),
                             child: RichText(
                               text: TextSpan(
                                   text: "Have an account?  ",

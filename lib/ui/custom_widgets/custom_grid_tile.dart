@@ -13,9 +13,9 @@ class CustomGridTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height: 150.h,
+        height: 140.h,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: GestureDetector(
             onTap: onPressed,
             child: Card(
@@ -25,7 +25,10 @@ class CustomGridTile extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 15.0),
                 child: GridTile(
                   child: Image.asset('assets/icons/${icon!}'),
-                  footer: Text(title,textAlign: TextAlign.center,),
+                  footer: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),
@@ -35,4 +38,3 @@ class CustomGridTile extends StatelessWidget {
     );
   }
 }
-

@@ -6,8 +6,9 @@ class CustomBackButton extends StatelessWidget {
   final title;
   final IconData? icon;
   final onPressed;
+  final size;
 
-  CustomBackButton({this.title,this.icon,this.onPressed});
+  CustomBackButton({this.title, this.icon, this.onPressed, this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,18 @@ class CustomBackButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon,color: Colors.white,),
-                SizedBox(width: 4,),
-                Text(title,style: TextStyle(color: Colors.white,fontSize: 16.sp),),
+                Icon(
+                  icon,
+                  color: Colors.white,
+                  size: size ?? 16,
+                ),
+                SizedBox(
+                  width: 4,
+                ),
+                Text(
+                  title,
+                  style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                ),
               ],
             ),
           ),

@@ -8,8 +8,15 @@ class CustomNextButton extends StatelessWidget {
   final onPressed;
   final double? height;
   final double? width;
+  final size;
 
-  CustomNextButton({this.title,this.icon,this.onPressed,this.height,this.width});
+  CustomNextButton(
+      {this.title,
+      this.icon,
+      this.onPressed,
+      this.height,
+      this.size,
+      this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +35,18 @@ class CustomNextButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(title,style: TextStyle(color: Colors.white,fontSize: 16.sp),),
-                SizedBox(width: 4,),
-                Icon(icon,color: Colors.white,),
+                Text(
+                  title,
+                  style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                ),
+                SizedBox(
+                  width: 4,
+                ),
+                Icon(
+                  icon,
+                  color: Colors.white,
+                  size: size ?? 16,
+                ),
               ],
             ),
           ),

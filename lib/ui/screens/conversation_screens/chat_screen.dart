@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
+import 'package:sage/core/models/conversation.dart';
 import 'package:sage/ui/screens/conversation_screens/message_provider.dart';
 
 class ChatScreen extends StatelessWidget {
+  final Conversation? conversation;
+  ChatScreen({this.conversation});
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class ChatScreen extends StatelessWidget {
                   backgroundImage: AssetImage("assets/images/profile_image.png"),
                 ),
                 title: Text(
-                  "Eugene Hanson",
+                  "${conversation!.name}",
                   style: fontSize16.copyWith(fontWeight: FontWeight.bold,color: Colors.white),
                 ),
               ),
