@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sage/core/constants/colors.dart';
+import 'package:sage/ui/custom_widgets/custom_page_route.dart';
 import 'package:sage/ui/custom_widgets/custom_textfield.dart';
 import 'package:sage/ui/custom_widgets/password_textfield.dart';
 import 'package:sage/ui/custom_widgets/rectangular_button.dart';
 import 'package:sage/ui/screens/auth/sign_in/Login_screen.dart';
 import 'package:sage/ui/screens/auth/sign_up/sign_up_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatelessWidget {
 
@@ -19,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 43.0),
+              padding: EdgeInsets.symmetric(horizontal: 40.0,vertical: 20),
               child: Center(
                 child: Consumer<SignUpProvider>(
                   builder: (context, model, child){
@@ -32,14 +34,14 @@ class SignUpScreen extends StatelessWidget {
                           ///
                           /// Logo
                           ///
-                          SizedBox(height: 40,),
+                          SizedBox(height: 20.h,),
                           Center(child: Image.asset('assets/logo/sage_logo_text.png')),
-                          SizedBox(height: 41,),
+                          SizedBox(height: 20.h,),
 
                           ///
                           /// Full name
                           ///
-                          SizedBox(height: 41,),
+                          SizedBox(height: 40.h,),
                           Text("Full Name"),
                           SizedBox(height: 5,),
                           CustomTextField(
@@ -57,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                             preFixIcon: Icons.person,
                           ),
 
-                          SizedBox(height: 20,),
+                          SizedBox(height: 20.h,),
                           ///
                           /// user email address
                           ///
@@ -77,7 +79,7 @@ class SignUpScreen extends StatelessWidget {
                             sufFixIcon: 'assets/icons/sent_icon.png',
                             preFixIcon: Icons.email,
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(height: 20.h,),
                           ///
                           /// password text field
                           ///
@@ -99,7 +101,7 @@ class SignUpScreen extends StatelessWidget {
                               }
                             },
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(height: 20.h,),
 
                           ///
                           /// confirm password text field
@@ -118,7 +120,7 @@ class SignUpScreen extends StatelessWidget {
                               }
                             },
                           ),
-                          SizedBox(height: 30,),
+                          SizedBox(height: 30.h,),
                           ///
                           /// Radio button
                           ///
@@ -127,36 +129,42 @@ class SignUpScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Flexible(
-                                child: RadioListTile(
-                                  contentPadding: EdgeInsets.all(0),
-                                  groupValue: model.groupValue,
-                                  onChanged: (newValue){
-                                    model.termsAndConditions(newValue);
-                                  },
-                                  value: 1,
-                                  activeColor: primaryColor,
-                                  title: Text('By signing up you must agree to our terms and conditions',style: TextStyle(color: Colors.black),),
+                                child: ListTile(
+                                  horizontalTitleGap: 0.0,
+                                  contentPadding: EdgeInsets.zero,
+                                  leading: Radio(
+                                    groupValue: model.groupValue,
+                                    onChanged:(newValue){
+                                      model.termsAndConditions(newValue);
+                                    },
+                                    value: 1,
+                                    activeColor: primaryColor,
+                                  ),
+                                  title: Text('By signing up you must agree to our terms and conditions',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 30,),
+                          SizedBox(height: 30.h,),
                           ///
                           /// Sign in button
                           ///
-                          RectangularButton(title: 'Sign Up', onPressed: ()=>model.signUpUser(model.appUser)),
-                          SizedBox(height: 28,),
+                          RectangularButton(title: 'Sign Up', onPressed: ()=>model.signUpUser(model.appUser,context)),
+                          SizedBox(height: 28.h,),
                           ///
                           /// have an account?  sign in option
                           ///
                           GestureDetector(
-                            onTap: ()=>Get.offAll(()=>LoginScreen()),
+                            onTap: ()=>Navigator.pushReplacement(context, CustomPageRoute(child: LoginScreen())),
+                            // onTap: ()=>Get.offAll(()=>LoginScreen()),
                             child: RichText(
                               text: TextSpan(
                                   text: "Have an account?  ",
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
@@ -164,7 +172,7 @@ class SignUpScreen extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black,
-                                          fontSize: 16,
+                                          fontSize: 16.sp,
                                         )
                                     )
                                   ]

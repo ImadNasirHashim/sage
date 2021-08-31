@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sage/core/constants/styles.dart';
 
 class PasswordTextField extends StatelessWidget {
 
@@ -17,10 +18,8 @@ class PasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 20.0,
-      shadowColor: Colors.grey,
-      borderRadius: BorderRadius.circular(7),
+    return Container(
+      decoration: textFiledContainerStyle,
       child: TextFormField(
         onChanged: onChanged,
         validator: validator,
@@ -28,6 +27,9 @@ class PasswordTextField extends StatelessWidget {
         obscureText: true,
         obscuringCharacter: "*",
         decoration:InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+            fillColor: Colors.white,
+            filled: true,
             hintText: '$hintText',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: ImageIcon(

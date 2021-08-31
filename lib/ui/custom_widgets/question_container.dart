@@ -1,33 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:sage/ui/custom_widgets/back_button.dart';
+import 'package:sage/core/constants/colors.dart';
+import 'package:sage/core/constants/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionContainer extends StatelessWidget {
+  final button;
+  final title;
+  final questionNo;
+
+  QuestionContainer({this.questionNo, this.title, this.button});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      child: Column(
-        children: [
-          Row(
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 8.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          height: 130.h,
+          decoration: questionStyle,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: 20,
-                width: 20,
-                child: Center(
-                  child: Text('1'),
-                ),
+              Row(
+                children: [
+                  ///
+                  /// Question number
+                  ///
+                  Container(
+                    height: 20.h,
+                    width: 20.w,
+                    decoration: BoxDecoration(
+                        color: primaryColor.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(2)),
+                    child: Center(
+                      child: Text(
+                        '$questionNo',
+                        style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 14.w,
+                  ),
+
+                  ///
+                  /// Question title
+                  ///
+                  Expanded(child: Text(title)),
+                ],
               ),
-              Text('How many behaviors do you want to measure?'),
+              SizedBox(
+                height: 20.h,
+              ),
+
+              ///
+              /// button
+              ///
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: button,
+              ),
             ],
           ),
-          SizedBox(height: 20,),
-          Row(
-            children: [
-              CustomBackButton(title: '4 behaviour',icon: Icons.done,),
-              CustomBackButton(title: '8 behaviour',icon: Icons.done,)
-            ],
-          )
-        ],
+        ),
       ),
     );
   }

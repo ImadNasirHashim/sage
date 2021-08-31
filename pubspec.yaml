@@ -30,6 +30,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.3.8
   provider: ^6.0.0
+  fancy_bottom_navigation: ^0.3.2
+  intl: ^0.17.0
+  syncfusion_flutter_charts: ^19.2.57
+  flutter_screenutil: ^5.0.0+2
+  percent_indicator: ^3.0.1
 
 dev_dependencies:
   flutter_test:
