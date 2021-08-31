@@ -6,6 +6,7 @@ import 'package:sage/ui/custom_widgets/custom_page_route.dart';
 import 'package:sage/ui/screens/conversation_screens/message_screen.dart';
 import 'package:sage/ui/screens/dashboard_screen.dart';
 import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
+import 'package:sage/ui/screens/profile_screens/profle_screen.dart';
 import 'package:sage/ui/screens/setting_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,6 +24,12 @@ class HomeScreenBody extends StatelessWidget {
         centerTitle: true,
         elevation: 0.0,
         shape: appBarShape,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle,color: Colors.white,),
+            onPressed: ()=>Navigator.push(context, CustomPageRoute(child: ProfileScreen())),
+          )
+        ],
       ),
 
       ///

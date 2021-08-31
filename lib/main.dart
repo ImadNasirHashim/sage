@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sage/core/constants/colors.dart';
-import 'package:sage/ui/screens/dashboard_screen.dart';
-import 'package:sage/ui/screens/home_screen_body.dart';
-import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
 import 'package:sage/ui/screens/conversation_screens/message_screen.dart';
-import 'package:sage/ui/screens/questionnaires_screens/question_screens.dart';
-import 'package:sage/ui/screens/setting_screen.dart';
+import 'package:sage/ui/screens/dashboard_screen.dart';
+import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
+import 'package:sage/ui/screens/profile_screens/profle_screen.dart';
 import 'package:sage/ui/screens/splash_screen.dart';
 
 void main() {
@@ -21,10 +19,13 @@ class MyApp extends StatelessWidget {
       designSize: Size(414, 736),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme:
-            ThemeData(primarySwatch: Colors.green, primaryColor: primaryColor),
-        home: SplashScreen(),
-        //   home: DashboardScreen(),
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+          primaryColor: primaryColor,
+          scaffoldBackgroundColor: backgroundColor
+        ),
+        // home: SplashScreen(),
+          home: MessageScreen(),
       ),
     );
   }

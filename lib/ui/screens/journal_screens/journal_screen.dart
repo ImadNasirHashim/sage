@@ -15,7 +15,6 @@ class JournalScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
-          toolbarHeight: 70.h,
           title: Text("Self-Awareness & Journal"),
           centerTitle: true,
           elevation: 0.0,
@@ -40,16 +39,13 @@ class JournalScreen extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Material(
+                  Card(
                     shadowColor: Colors.grey,
                     elevation: 3,
-                    borderRadius: BorderRadius.circular(7),
+                    // borderRadius: BorderRadius.circular(7),
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: Text(
-                        model.behaviours[model.index],
-                        textAlign: TextAlign.justify,
-                      ),
+                      child: Text(model.behaviours[model.index],style: fontSize16,),
                     ),
                   ),
                   SizedBox(
@@ -67,8 +63,8 @@ class JournalScreen extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Material(
-                    borderRadius: BorderRadius.circular(7),
+                  Card(
+                    // borderRadius: BorderRadius.circular(7),
                     shadowColor: Colors.grey,
                     elevation: 3,
                     child: Padding(

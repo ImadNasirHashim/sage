@@ -1,7 +1,12 @@
+import 'package:charts_flutter/flutter.dart';
 import 'package:sage/core/models/conversation.dart';
 import 'package:sage/core/view_models/base_view_model.dart';
 
 class MessageProvider extends BaseViewModal{
+
+  bool isSearching=false;
+  List<Conversation> searchedUsers=[];
+
 
   List<Conversation> messages = [
     Conversation(
@@ -77,7 +82,7 @@ class MessageProvider extends BaseViewModal{
         messageType: 'receiver'
     ),
     Conversation(
-      name: "Toney Stark",
+      name: "Jan",
       messageText: "I am fine. How are you doing?",
       time: '4:12 PM',
       imageUrl: null,
@@ -85,5 +90,30 @@ class MessageProvider extends BaseViewModal{
         messageType: 'receiver'
     ),
   ];
+
+  ///
+/// convert appbar into searching mode
+///
+  searchingMode(){
+    if(isSearching)
+      {
+        isSearching=false;
+      }
+    else{
+      isSearching=true;
+    }
+    notifyListeners();
+  }
+  ///
+/// search user by name
+///
+  searchUserByName(String keyword){
+    print("Searched keyword : $keyword");
+    keyword.isEmpty ? isSearching = false : isSearching = true;
+    searchedUsers = messages.where((e) =>
+    (e.name!.toLowerCase().contains(keyword.toLowerCase()))).toList();
+    notifyListeners();
+  }
+
 
 }

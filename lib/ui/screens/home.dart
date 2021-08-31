@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/custom_grid_tile.dart';
+import 'package:sage/ui/screens/profile_screens/profle_screen.dart';
 import 'package:sage/ui/screens/setting_screen.dart';
 
 import 'conversation_screens/message_screen.dart';
@@ -41,12 +42,12 @@ class _HomeState extends State<Home> {
       body: _pageIndex == 0
           ? HomeScreenBody()
           : _pageIndex == 1
-              ? DashboardScreen()
-              : _pageIndex == 2
-                  ? JournalScreen()
-                  : _pageIndex == 3
-                      ? MessageScreen()
-                      : HomeScreenBody(),
+          ? DashboardScreen()
+          : _pageIndex == 2
+          ? JournalScreen()
+          : _pageIndex == 3
+          ? MessageScreen()
+          : HomeScreenBody(),
 
       ///
       /// Bottom navigation bar
@@ -58,11 +59,13 @@ class _HomeState extends State<Home> {
         inactiveIconColor: Colors.white,
         activeIconColor: primaryColor,
         textColor: Colors.white,
+
         tabs: [
           TabData(iconData: Icons.home, title: "Home"),
           TabData(iconData: Icons.dashboard, title: "Dashboard"),
           TabData(iconData: Icons.assignment, title: "Journal"),
           TabData(iconData: Icons.message, title: "Message"),
+          // TabData(iconData: Icons.account_circle, title: "Profile"),
         ],
         onTabChangedListener: (index) {
           if (index == 0) {
@@ -90,6 +93,11 @@ class _HomeState extends State<Home> {
             });
             // Get.offAll(()=>MessageScreen());
           }
+          // if (index == 4) {
+          //   setState(() {
+          //     _pageIndex = 4;
+          //   });
+          // }
         },
       ),
     );
