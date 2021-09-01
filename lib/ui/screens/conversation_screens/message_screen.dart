@@ -50,79 +50,8 @@ class MessageScreen extends StatelessWidget {
             body: ListView.builder(
               itemCount: model.isSearching==false?model.messages.length:model.searchedUsers.length,
               itemBuilder: (context, index) {
-                return model.isSearching==false?Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(
-                        radius: 30.r,
-                        backgroundImage:
-                        AssetImage('assets/images/profile_image.png'),
-                      ),
-                      title: Text("${model.messages[index].name}"),
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${model.messages[index].messageText}",
-                            style: TextStyle(
-                                fontWeight: model.messages[index].isMessageRead!
-                                    ? FontWeight.bold
-                                    : FontWeight.normal),
-                          ),
-                          Text("${model.messages[index].time}"),
-                        ],
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            CustomPageRoute(child: ChatScreen(conversation: model.messages[index],)));
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 23.0),
-                      child: Divider(
-                        thickness: 1,
-                        color: primaryColor,
-                      ),
-                    )
-                  ],
-                ):Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(
-                        radius: 30.r,
-                        backgroundImage:
-                        AssetImage('assets/images/profile_image.png'),
-                      ),
-                      title: Text("${model.searchedUsers[index].name}"),
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${model.messages[index].messageText}",
-                            style: TextStyle(
-                                fontWeight: model.messages[index].isMessageRead!
-                                    ? FontWeight.bold
-                                    : FontWeight.normal),
-                          ),
-                          Text("${model.messages[index].time}"),
-                        ],
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            CustomPageRoute(child: ChatScreen(conversation: model.messages[index],)));
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 23.0),
-                      child: Divider(
-                        thickness: 1,
-                        color: primaryColor,
-                      ),
-                    )
-                  ],
-                );
+                return model.isSearching==false ? buildMessagesBody(model, index, context):
+                buildSearchingMessagesBody(model, index, context);
               },
             ),
             // bottomNavigationBar: CustomNavigationBar(currentIndex: 3,),
@@ -131,4 +60,92 @@ class MessageScreen extends StatelessWidget {
       ),
     );
   }
+
+  ///
+  /// searched user
+  ///
+  Column buildSearchingMessagesBody(MessageProvider model, int index, BuildContext context) {
+    return Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      radius: 30.r,
+                      backgroundImage:
+                      AssetImage('assets/images/profile_image.png'),),
+                    title: Text("${model.searchedUsers[index].name}"),
+                    subtitle: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${model.messages[index].messageText}",
+                          style: TextStyle(
+                              fontWeight: model.messages[index].isMessageRead!
+                                  ? FontWeight.bold
+                                  : FontWeight.normal),
+                        ),
+                        Text("${model.messages[index].time}"),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CustomPageRoute(child: ChatScreen(conversation: model.messages[index],)));
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 23.0),
+                    child: Divider(
+                      thickness: 1,
+                      color: primaryColor,
+                    ),
+                  )
+                ],
+              );
+  }
+
+  ///
+  /// messages body
+  ///
+  Column buildMessagesBody(MessageProvider model, int index, BuildContext context) {
+    return Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      radius: 30.r,
+                      backgroundImage:
+                      AssetImage('assets/images/profile_image.png'),
+                    ),
+                    title: Text("${model.messages[index].name}"),
+                    subtitle: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${model.messages[index].messageText}",
+                          style: TextStyle(
+                              fontWeight: model.messages[index].isMessageRead!
+                                  ? FontWeight.bold
+                                  : FontWeight.normal),
+                        ),
+                        Text("${model.messages[index].time}"),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CustomPageRoute(child: ChatScreen(conversation: model.messages[index],)));
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 23.0),
+                    child: Divider(
+                      thickness: 1,
+                      color: primaryColor,
+                    ),
+                  )
+                ],
+              );
+  }
+
+
+
 }

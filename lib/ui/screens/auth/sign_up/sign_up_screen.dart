@@ -46,6 +46,8 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(height: 5,),
                           CustomTextField(
                             hintText: "SAGE User",
+                            textInputAction: TextInputAction.next,
+                            keyBoardType: TextInputType.text,
                             onChanged: (value){
                               model.appUser.userName = value;
                             },
@@ -66,7 +68,9 @@ class SignUpScreen extends StatelessWidget {
                           Text("Email"),
                           SizedBox(height: 5,),
                           CustomTextField(
-                            hintText: "sagemindsetuser@gmail.com",
+                            hintText: "sageuser@gmail.com",
+                            textInputAction: TextInputAction.next,
+                            keyBoardType: TextInputType.emailAddress,
                             onChanged: (value){
                               model.appUser.email = value;
                             },
@@ -74,6 +78,9 @@ class SignUpScreen extends StatelessWidget {
                               if(value==null || value.isEmpty)
                               {
                                 return "Email can't be empty";
+                              }
+                              if(!value.contains("@")){
+                                return "Enter valid email";
                               }
                             },
                             sufFixIcon: 'assets/icons/sent_icon.png',
@@ -87,6 +94,8 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(height: 5,),
                           PasswordTextField(
                             hintText: 'Password',
+                            textInputAction: TextInputAction.next,
+                            keyBoardType: TextInputType.visiblePassword,
                             onChanged: (value){
                               model.appUser.password = value;
                             },
@@ -110,6 +119,8 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(height: 5,),
                           PasswordTextField(
                             hintText: "Confirm Password",
+                            textInputAction: TextInputAction.done,
+                            keyBoardType: TextInputType.visiblePassword,
                             onChanged: (value){
                               model.appUser.confirmPassword = value;
                             },
@@ -132,12 +143,11 @@ class SignUpScreen extends StatelessWidget {
                                 child: ListTile(
                                   horizontalTitleGap: 0.0,
                                   contentPadding: EdgeInsets.zero,
-                                  leading: Radio(
-                                    groupValue: model.groupValue,
+                                  leading: Checkbox(
+                                    value: model.isAgreeTermsAndConditions,
                                     onChanged:(newValue){
                                       model.termsAndConditions(newValue);
                                     },
-                                    value: 1,
                                     activeColor: primaryColor,
                                   ),
                                   title: Text('By signing up you must agree to our terms and conditions',

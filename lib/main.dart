@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
           primaryColor: primaryColor,
           scaffoldBackgroundColor: backgroundColor
         ),
-        // home: SplashScreen(),
-          home: MessageScreen(),
+        home: SplashScreen(),
+        //   home: MessageScreen(),
       ),
     );
   }

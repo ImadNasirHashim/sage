@@ -9,11 +9,11 @@ class SignUpProvider extends BaseViewModal{
 
   AppUser appUser = AppUser();
   final formKey = GlobalKey<FormState>();
-  int groupValue= 0;
+  bool isAgreeTermsAndConditions = false;
 
   termsAndConditions(value)
   {
-    groupValue = value;
+    isAgreeTermsAndConditions = value;
     notifyListeners();
   }
 
