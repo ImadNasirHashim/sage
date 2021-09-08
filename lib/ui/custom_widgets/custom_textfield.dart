@@ -9,6 +9,8 @@ class CustomTextField extends StatelessWidget {
   final controller;
   final preFixIcon;
   final sufFixIcon;
+  final textInputAction;
+  final keyBoardType;
 
 
   CustomTextField({this.preFixIcon,
@@ -17,6 +19,8 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.hintText,
     this.validator,
+    this.textInputAction,
+    this.keyBoardType,
   });
 
   @override
@@ -24,6 +28,8 @@ class CustomTextField extends StatelessWidget {
     return Container(
       decoration: textFiledContainerStyle,
       child: TextFormField(
+        textInputAction: textInputAction,
+        keyboardType: keyBoardType,
         onChanged: onChanged,
         validator: validator,
         controller: controller,

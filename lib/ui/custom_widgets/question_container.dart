@@ -14,10 +14,10 @@ class QuestionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 9.0.w, vertical: 8.0.h),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.0),
-          height: 130.h,
+          padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+          // height: 140.h,
           decoration: questionStyle,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,11 +47,11 @@ class QuestionContainer extends StatelessWidget {
                   ///
                   /// Question title
                   ///
-                  Expanded(child: Text(title)),
+                  Expanded(child: Text(title,style: fontSize16,)),
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 15.h,
               ),
 
               ///

@@ -7,8 +7,9 @@ class CustomBackButton extends StatelessWidget {
   final IconData? icon;
   final onPressed;
   final size;
+  final color;
 
-  CustomBackButton({this.title, this.icon, this.onPressed, this.size});
+  CustomBackButton({this.title, this.icon, this.onPressed, this.size,this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class CustomBackButton extends StatelessWidget {
       child: Container(
         height: 35.h,
         decoration: BoxDecoration(
-          color: primaryColor,
+          color: color,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Padding(

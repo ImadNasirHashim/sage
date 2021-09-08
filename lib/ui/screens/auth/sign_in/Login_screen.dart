@@ -11,6 +11,7 @@ import 'package:sage/ui/screens/auth/sign_up/sign_up_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -63,6 +64,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                           CustomTextField(
                             hintText: "username@gmail.com",
+                            textInputAction: TextInputAction.next,
+                            keyBoardType: TextInputType.emailAddress,
                             onChanged: (value) {
                               model.appUser.email = value;
                             },
@@ -70,6 +73,10 @@ class LoginScreen extends StatelessWidget {
                               if (value == null || value.isEmpty) {
                                 return 'Enter your email';
                               }
+                              if(!value.contains("@"))
+                                {
+                                  return "Enter valid email";
+                                }
                             },
                             sufFixIcon: 'assets/icons/sent_icon.png',
                             preFixIcon: Icons.email,
@@ -87,6 +94,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                           PasswordTextField(
                             hintText: 'Password',
+                            textInputAction: TextInputAction.done,
+                            keyBoardType: TextInputType.visiblePassword,
                             onChanged: (value) {
                               model.appUser.password = value;
                             },
@@ -114,12 +123,11 @@ class LoginScreen extends StatelessWidget {
                                 child: ListTile(
                                   horizontalTitleGap: 0.0,
                                   contentPadding: EdgeInsets.zero,
-                                  leading: Radio(
-                                    groupValue: model.groupValue,
+                                  leading: Checkbox(
+                                    value: model.isRememberMe,
                                     onChanged: (newValue) {
                                       model.rememberMe(newValue);
                                     },
-                                    value: 1,
                                     activeColor: primaryColor,
                                   ),
                                   title: Text(

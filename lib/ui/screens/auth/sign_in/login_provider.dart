@@ -13,10 +13,11 @@ class LoginProvider extends BaseViewModal{
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  int groupValue = 0;
+
+  bool isRememberMe = false;
 
   rememberMe(value){
-    groupValue = value;
+    isRememberMe = value;
     notifyListeners();
   }
 

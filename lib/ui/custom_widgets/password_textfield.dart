@@ -7,6 +7,8 @@ class PasswordTextField extends StatelessWidget {
   final validator;
   final controller;
   final hintText;
+  final textInputAction;
+  final keyBoardType;
 
 
   PasswordTextField({
@@ -14,6 +16,8 @@ class PasswordTextField extends StatelessWidget {
     this.controller,
     this.validator,
     this.hintText,
+    this.textInputAction,
+    this.keyBoardType,
   });
 
   @override
@@ -21,6 +25,8 @@ class PasswordTextField extends StatelessWidget {
     return Container(
       decoration: textFiledContainerStyle,
       child: TextFormField(
+        textInputAction: textInputAction,
+        keyboardType: keyBoardType,
         onChanged: onChanged,
         validator: validator,
         controller: controller,
