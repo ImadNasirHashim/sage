@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
 import 'package:sage/ui/custom_widgets/back_button.dart';
 import 'package:sage/ui/custom_widgets/custom_page_route.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
 import 'package:sage/ui/custom_widgets/question_container.dart';
+import 'package:sage/ui/screens/journal_screens/journal_provider.dart';
+import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
 import 'package:sage/ui/screens/questionnaires_screens/question_screen_provider.dart';
 import 'package:sage/ui/screens/self_awareness_screens/self_awareness_screen.dart';
 import 'package:intl/intl.dart';
@@ -16,7 +18,7 @@ class QuestionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => QuestionScreenProvider(),
+      create: (context) => JournalProvider(),
       child: Scaffold(
         ///
         /// App bar
@@ -31,10 +33,10 @@ class QuestionScreen extends StatelessWidget {
         ///
         /// body
         ///
-        body: Consumer<QuestionScreenProvider>(
+        body: Consumer<JournalProvider>(
           builder: (context, model, child) {
             return Padding(
-              padding: const EdgeInsets.all(23.0),
+              padding: EdgeInsets.all(23.0.sp),
               child: Flex(
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 direction: Axis.vertical,
@@ -50,8 +52,12 @@ class QuestionScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: CustomBackButton(
+                            color: model.isBehaviourMode4 ? primaryColor : primaryColor.withOpacity(0.5),
                             title: "4 behavior",
-                            onPressed: null,
+                            onPressed: (){
+                              // model.setBehaviourSize(4);
+                              model.selectBehaviourMode();
+                            },
                             icon: Icons.done,
                           ),
                         ),
@@ -60,8 +66,11 @@ class QuestionScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: CustomBackButton(
+                            color: model.isBehaviourMode8 ? primaryColor : primaryColor.withOpacity(0.5),
                             title: "8 behavior",
-                            onPressed: null,
+                            onPressed: (){
+                              model.selectBehaviourMode();
+                            },
                             icon: Icons.done,
                           ),
                         ),
@@ -81,6 +90,7 @@ class QuestionScreen extends StatelessWidget {
                         Container(
                           width: 120.w,
                           child: CustomBackButton(
+                            color: primaryColor,
                             title: "${model.setTime}",
                             onPressed: () {
                               model.setTimeForReminder(context);
@@ -97,16 +107,18 @@ class QuestionScreen extends StatelessWidget {
                   ///
                   QuestionContainer(
                     questionNo: 3,
-                    title:
-                        "Allow your coach to view your journal entries and send you personalized messages.",
+                    title: "Allow your coach to view your journal entries and send you personalized messages.",
                     button: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
                           width: 120.w,
                           child: CustomBackButton(
+                            color: model.isAllow ? primaryColor : primaryColor.withOpacity(0.5),
                             title: "Yes",
-                            onPressed: null,
+                            onPressed: (){
+                              model.allowCoachViewYourJournal();
+                            },
                             icon: Icons.done,
                           ),
                         ),
@@ -116,15 +128,17 @@ class QuestionScreen extends StatelessWidget {
                         Container(
                           width: 120.w,
                           child: CustomBackButton(
+                            color: model.isNotAllow ? primaryColor : primaryColor.withOpacity(0.5),
                             title: "No",
-                            onPressed: null,
+                            onPressed: (){
+                              model.allowCoachViewYourJournal();
+                            },
                             icon: Icons.close,
                           ),
                         ),
                       ],
                     ),
                   ),
-
                   ///
                   /// Question 4
                   ///
@@ -138,10 +152,10 @@ class QuestionScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('0'),
-                              Text('30'),
-                              Text('60'),
-                              Text('90'),
+                              Text('0',style: fontSize16,),
+                              Text('30',style: fontSize16,),
+                              Text('60',style: fontSize16,),
+                              Text('90',style: fontSize16,),
                             ],
                           ),
                         ),
@@ -157,11 +171,11 @@ class QuestionScreen extends StatelessWidget {
                           ),
                           child: Slider.adaptive(
                             divisions: 3,
-                            min: model.sliderMinValue,
-                            max: model.sliderMaxvalue,
-                            value: model.sliderValue,
+                            min: model.minDays,
+                            max: model.maxDays,
+                            value: model.selectedDays,
                             onChanged: (value) {
-                              model.changeSliderValue(value);
+                              model.questionSliderValue(value);
                             },
                           ),
                         ),

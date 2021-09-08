@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:sage/core/constants/colors.dart';
 import 'package:sage/ui/custom_widgets/back_button.dart';
 import 'package:sage/ui/custom_widgets/custom_page_route.dart';
 import 'package:sage/ui/custom_widgets/next_button.dart';
@@ -74,6 +75,7 @@ class WalkThroughScreen extends StatelessWidget {
                         Container(
                           width: 85.w,
                           child: CustomBackButton(
+                            color: primaryColor,
                             title: "Back",
                             icon: Icons.arrow_back_ios,
                             onPressed: () {

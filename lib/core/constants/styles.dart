@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final questionStyle = BoxDecoration(
     color: Colors.white,
@@ -28,7 +29,7 @@ final textFiledContainerStyle = BoxDecoration(
 );
 
 final textFieldDecoration = InputDecoration(
-  contentPadding: EdgeInsets.symmetric(horizontal: 0,vertical: 20),
+  contentPadding: EdgeInsets.symmetric(horizontal: 0,vertical: 20.h),
   hintText: 'Your message',
   border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(7),
@@ -43,4 +44,4 @@ final appBarShape = RoundedRectangleBorder(
   ),
 );
 
-final fontSize16 = TextStyle(fontSize: 16);
+final fontSize16 = TextStyle(fontSize: 16.sp);
