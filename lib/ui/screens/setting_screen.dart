@@ -22,7 +22,7 @@ class SettingScreen extends StatelessWidget {
         /// App bar
         ///
         appBar: AppBar(
-          title: Text("SAGE-APP Settings"),
+          title: Text("Settings"),
           centerTitle: true,
           elevation: 0.0,
           shape: appBarShape,

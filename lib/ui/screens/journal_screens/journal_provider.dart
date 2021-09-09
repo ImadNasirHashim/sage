@@ -10,9 +10,9 @@ import 'package:sage/ui/screens/journal_screens/journal_screen.dart';
 class JournalProvider extends BaseViewModal {
 
   // Behaviour behaviour = Behaviour();
-  double sliderValue = 1;
-  double sliderMinValue = 1;
-  double sliderMaxvalue = 5;
+  double score = 1;
+  double minScore = 1;
+  double maxScore = 5;
   int index = 0;
   bool isBehaviourMode4 = true;
   bool isBehaviourMode8 = false;
@@ -58,22 +58,23 @@ class JournalProvider extends BaseViewModal {
     notifyListeners();
   }
 
-  changeSliderValue(double value) {
-    sliderValue = value;
-    print(sliderValue);
+  selectScoreValue(double value) {
+    score = value;
+    print(score);
     notifyListeners();
   }
 
-  getUserBehaviour(int nextIndex) {
+  getUserBehavioursFromUser() {
     // index = nextIndex;
     // print(behaviours[index]);
     behaviours.add(behaviourController.text);
-    print(behaviours);
+    print('user behaviour list: $behaviours');
+    print('index value: $index');
     behaviourController.clear();
     notifyListeners();
     if(index == behaviourSize-1)
       {
-        Get.snackbar("Behaviour", "Your behaviour submitted",snackPosition: SnackPosition.BOTTOM);
+        Get.snackbar("Behaviour", "Your behaviours submitted",snackPosition: SnackPosition.BOTTOM);
       }
   }
 

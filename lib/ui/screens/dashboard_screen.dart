@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sage/core/constants/colors.dart';
 import 'package:sage/core/constants/styles.dart';
 import 'package:sage/core/models/graph.dart';
+import 'package:sage/ui/custom_widgets/custom_percentage_indicator.dart';
 import 'package:sage/ui/screens/dashboard_screens/dashboard_provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,20 +42,33 @@ class DashboardScreen extends StatelessWidget {
                     ///
                     /// bar graph
                     ///
-                    Container(
-                      height: 170.h,
-                      child: SfCartesianChart(
-                          plotAreaBorderWidth: 0.1,
-                          series: <ChartSeries>[
-                            ColumnSeries<Graph, dynamic>(
-                              color: primaryColor,
-                              dataSource: model.scoreList,
-                              xValueMapper: (Graph index, _) => index.xAxis,
-                              yValueMapper: (Graph index, _) => index.yAxis,
-                              width: 0.2,
-                            )
-                          ]
-                      ),
+                    Column(
+                      children: [
+                        Container(
+                          height: 200.h,
+                          child: SfCartesianChart(
+                              plotAreaBorderWidth: 0.1,
+                              series: <ChartSeries>[
+                                ColumnSeries<Graph, dynamic>(
+                                  color: primaryColor,
+                                  dataSource: model.scoreList,
+                                  xValueMapper: (Graph index, _) => index.xAxis,
+                                  yValueMapper: (Graph index, _) => index.yAxis,
+                                  width: 0.2,
+                                ),
+                              ]
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("Self-Awareness",style: TextStyle(fontSize: 10.sp,fontWeight: FontWeight.bold),),
+                            Text("Accountability",style: TextStyle(fontSize: 10.sp,fontWeight: FontWeight.bold)),
+                            Text("Growth",style: TextStyle(fontSize: 10.sp,fontWeight: FontWeight.bold)),
+                            Text("Empowerment",style: TextStyle(fontSize: 10.sp,fontWeight: FontWeight.bold)),
+                          ],
+                        )
+                      ],
                     ),
                     Divider(
                       thickness: 1,
@@ -67,87 +81,30 @@ class DashboardScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Expanded(
-                          child: CircularPercentIndicator(
-                            radius: 100.0.r,
-                            animation: true,
-                            animationDuration: 1200,
-                            lineWidth: 8.0,
-                            percent: 0.24,
-                            center: Text(
-                              "Self-Awareness\nImprovement\n24.3%",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 10.0.sp,
-                              ),
-                            ),
-                            circularStrokeCap: CircularStrokeCap.butt,
-                            backgroundColor: Colors.white,
-                            progressColor: primaryColor,
-                          ),
+                        CustomPercentageIndicator(
+                          percentage: 0.24,
+                          centreText: "Self-Awareness\nImprovement\n24.3%",
+                          progressColor: primaryColor,
                         ),
-                        Expanded(
-                          child: CircularPercentIndicator(
-                            radius: 100.0.r,
-                            animation: true,
-                            animationDuration: 1200,
-                            lineWidth: 8.0,
-                            percent: 0.40,
-                            center: Text(
-                              "Accountability\nImprovement\n40.3%",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 10.0.sp,
-                              ),
-                            ),
-                            circularStrokeCap: CircularStrokeCap.butt,
-                            backgroundColor: Colors.white,
-                            progressColor: primaryColor,
-                          ),
+                        CustomPercentageIndicator(
+                          percentage: 0.56,
+                          centreText: "Accountability\nImprovement\n56.0%",
+                          progressColor: primaryColor,
                         ),
                       ],
                     ),
                     SizedBox(height: 20,),
                     Row(
                       children: [
-                        Expanded(
-                          child: CircularPercentIndicator(
-                            radius: 100.0.r,
-                            animation: true,
-                            animationDuration: 1200,
-                            lineWidth: 8.0,
-                            percent: 0.30,
-                            center: Text(
-                              "Growth\nImprovement\n30.3%",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 10.0.sp,
-                              ),
-                            ),
-                            circularStrokeCap: CircularStrokeCap.butt,
-                            backgroundColor: Colors.white,
-                            progressColor: primaryColor,
-                          ),
+                        CustomPercentageIndicator(
+                          percentage: 0.30,
+                          centreText: "Growth\nImprovement\n30.3%",
+                          progressColor: primaryColor,
                         ),
-
-                        Expanded(
-                          child: CircularPercentIndicator(
-                            radius: 100.0.r,
-                            animation: true,
-                            animationDuration: 1200,
-                            lineWidth: 8.0,
-                            percent: 0.65,
-                            center: Text(
-                              "Empathy\nImprovement\n65.0%",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 10.0.sp,
-                              ),
-                            ),
-                            circularStrokeCap: CircularStrokeCap.butt,
-                            backgroundColor: Colors.white,
-                            progressColor: primaryColor,
-                          ),
+                        CustomPercentageIndicator(
+                          percentage: 0.65,
+                          centreText: "Empowerment\nImprovement\n65.3%",
+                          progressColor: primaryColor,
                         ),
                       ],
                     ),
@@ -164,7 +121,7 @@ class DashboardScreen extends StatelessWidget {
                       style: fontSize16,
                     ),
                     Container(
-                      height: 170.h,
+                      height: 200.h,
                       child: SfCartesianChart(series: <ChartSeries>[
                         SplineAreaSeries<Graph, dynamic>(
                           color: primaryColor.withOpacity(0.5),

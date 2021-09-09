@@ -2,7 +2,7 @@
     package="com.example.sage">
    <application
        android:requestLegacyExternalStorage="true"
-        android:label="sage"
+        android:label="SAGE Mindset"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

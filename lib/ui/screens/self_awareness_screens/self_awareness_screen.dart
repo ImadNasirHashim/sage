@@ -95,7 +95,7 @@ class SelfAwarenessScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Enter your own behaviour',
+                        'Enter your own Self-Awareness Habits',
                         style: TextStyle(
                             fontSize: 16.sp, fontWeight: FontWeight.bold),
                       ),

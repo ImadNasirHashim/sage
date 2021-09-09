@@ -36,7 +36,7 @@ class JournalScreen extends StatelessWidget {
                       /// Behaviour
                       ///
                       Text(
-                        '${model.index+1} > Behaviour',
+                        '${model.index<=model.behaviourSize-1 ? model.index+1:model.behaviourSize} > Behaviour',
                         style:
                             TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                       ),
@@ -75,7 +75,7 @@ class JournalScreen extends StatelessWidget {
                       /// Slider
                       ///
                       Text(
-                        "${model.index+1} > Select your score",
+                        "${model.index<=model.behaviourSize-1 ? model.index+1:model.behaviourSize} > Select your score",
                         style:
                             TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                       ),
@@ -114,12 +114,12 @@ class JournalScreen extends StatelessWidget {
                                       RoundSliderOverlayShape(overlayRadius: 18.0),
                                 ),
                                 child: Slider(
-                                  min: model.sliderMinValue,
-                                  max: model.sliderMaxvalue,
+                                  min: model.minScore,
+                                  max: model.maxScore,
                                   divisions: 4,
-                                  value: model.sliderValue,
+                                  value: model.score,
                                   onChanged: (value) {
-                                    model.changeSliderValue(value);
+                                    model.selectScoreValue(value);
                                   },
                                 ),
                               ),
@@ -136,22 +136,18 @@ class JournalScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.center,
                         child: CustomNextButton(
-                          title: model.index < model.behaviourSize ? 'Next':'Submit',
+                          title: model.index < model.behaviourSize-1 ? 'Next':'Submit',
                           icon: Icons.arrow_forward_ios,
                           height: 45.h,
                           width: 218.w,
                           onPressed: () {
                               if (model.index == model.behaviourSize) {
-                                ///
-                                /// Submit data
-                                ///
-                                print("Overall behaviours: ${model.behaviours}");
                                 model.index = model.index;
                               } else {
-                                // print("Our behaviours: ${model.behaviours[model.index]}");
+                                // print("Our behaviours1: ${model.behaviours[model.index]}");
                                 print("Controller value: ${model.behaviourController.text}");
+                                model.getUserBehavioursFromUser();
                                 model.index++;
-                                model.getUserBehaviour(model.index);
                               }
                           },
                         ),

@@ -24,7 +24,7 @@ class QuestionScreen extends StatelessWidget {
         /// App bar
         ///
         appBar: AppBar(
-          title: Text('Set up for best experience'),
+          title: Text('App Setup'),
           centerTitle: true,
           elevation: 0.0,
           shape: appBarShape,
@@ -107,7 +107,7 @@ class QuestionScreen extends StatelessWidget {
                   ///
                   QuestionContainer(
                     questionNo: 3,
-                    title: "Allow your coach to view your journal entries and send you personalized messages.",
+                    title: "Do you want your coach to review your progress and send you personalized motivational messages?",
                     button: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -183,7 +183,7 @@ class QuestionScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 26.h,
+                    height: 20.h,
                   ),
 
                   ///
@@ -201,7 +201,7 @@ class QuestionScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 15.h,
                   ),
                 ],
               ),

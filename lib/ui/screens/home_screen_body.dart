@@ -20,7 +20,7 @@ class HomeScreenBody extends StatelessWidget {
       /// App bar
       ///
       appBar: AppBar(
-        title: Text("Welcome"),
+        title: Text("Home"),
         centerTitle: true,
         elevation: 0.0,
         shape: appBarShape,
@@ -109,7 +109,7 @@ class HomeScreenBody extends StatelessWidget {
                   onPressed: null,
                 ),
                 CustomGridTile(
-                  title: "Sage Podcast",
+                  title: "SAGE Podcast",
                   icon: 'sage_podcast_icon.png',
                   onPressed: null,
                 ),
@@ -126,7 +126,7 @@ class HomeScreenBody extends StatelessWidget {
             Row(
               children: [
                 CustomGridTile(
-                  title: "External Link",
+                  title: "Search Journal Entries",
                   icon: 'links_icon.png',
                   onPressed: null,
                 ),
